@@ -264,6 +264,13 @@ height = 31.0
 position = Vector2(580, 306)
 script = ExtResource("1_qet0w")
 
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0.90624, 55.25)
+scale = Vector2(1.57813, 0.416016)
+shadow_enabled = true
+texture = ExtResource("4_7ssou")
+offset = Vector2(-50, 0)
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 scale = Vector2(2, 2)
@@ -275,9 +282,7 @@ position = Vector2(3, 31)
 scale = Vector2(2, 2)
 shape = SubResource("CapsuleShape2D_th1oh")
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(-22, 0)
-scale = Vector2(0.565186, 0.625)
-shadow_enabled = true
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(-28.5, -11)
+scale = Vector2(0.425781, 0.351563)
 texture = ExtResource("4_7ssou")
-offset = Vector2(-50, 0)

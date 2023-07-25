@@ -1,25 +1,111 @@
-[gd_scene load_steps=4 format=3 uid="uid://daclh3u50sqbf"]
+[gd_scene load_steps=6 format=3 uid="uid://daclh3u50sqbf"]
 
 [ext_resource type="PackedScene" uid="uid://dpbq0mi7pwg0v" path="res://Components/Stella/Stella.tscn" id="1_2e2qw"]
-[ext_resource type="Texture2D" uid="uid://bpn5si07elgf" path="res://icon.svg" id="2_p1p7x"]
+[ext_resource type="PackedScene" uid="uid://cemvkty2daxwl" path="res://Components/object.tscn" id="3_d4bby"]
+[ext_resource type="Texture2D" uid="uid://dqv0jj2j2ugyp" path="res://Assets/basic_ground_tiles.png" id="3_uxyvd"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0qkrd"]
-size = Vector2(125.5, 127)
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nuw63"]
+texture = ExtResource("3_uxyvd")
+texture_region_size = Vector2i(128, 128)
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+0:0/0 = 0
+1:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_o3xyx"]
+tile_shape = 1
+tile_size = Vector2i(128, 63)
+sources/2 = SubResource("TileSetAtlasSource_nuw63")
 
 [node name="MainScene" type="Node2D"]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="TileMap" type="TileMap" parent="."]
+y_sort_enabled = true
+tile_set = SubResource("TileSet_o3xyx")
+format = 2
+layer_0/name = "layer 1"
+layer_0/y_sort_enabled = true
+layer_0/z_index = 100
+layer_0/tile_data = PackedInt32Array(1179653, 65538, 5, 1114117, 65538, 5, 1245189, 65538, 5, 1179654, 65538, 5, 1114118, 65538, 5, 1048582, 65538, 5, 1179652, 65538, 5, 1245188, 65538, 5, 1310725, 65538, 5, 983044, 65538, 5, 1048580, 65538, 5, 1114115, 65538, 5, 1179651, 65538, 5)
+layer_1/name = "Layer 0"
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = true
+layer_1/y_sort_origin = 0
+layer_1/z_index = 0
+layer_1/tile_data = PackedInt32Array(1, 2, 0, 65536, 2, 0, 65537, 2, 0, 131073, 2, 0, 196608, 2, 0, 131072, 2, 0, 131071, 2, 0, 0, 2, 0, 262143, 2, 0, 262144, 2, 0, 327680, 2, 0, 262145, 2, 0, 262146, 2, 0, 196610, 2, 0, 131074, 2, 0, 131075, 2, 0, 327681, 2, 0, 393216, 2, 0, 196609, 2, 0, 2, 2, 0, 65538, 2, 0, 3, 2, 0, -65533, 2, 0, 4, 2, 0, 65539, 2, 0, 393217, 2, 0, 458752, 2, 0, 524288, 2, 0, 327682, 2, 0, 393218, 2, 0, 458753, 2, 0, 524289, 2, 0, 589824, 2, 0, 262147, 2, 0, 196611, 2, 0, 131076, 2, 0, 65540, 2, 0, 5, 2, 0, 131077, 2, 0, 196612, 2, 0, 262148, 2, 0, 327683, 2, 0, 393219, 2, 0, 458754, 2, 0, 524290, 2, 0, 589825, 2, 0, 655361, 2, 0, 720896, 2, 0, -65531, 2, 0, 524291, 2, 0, 589826, 2, 0, 786432, 2, 0, 917503, 2, 0, 65541, 2, 0, 196613, 2, 0, 262149, 2, 0, 327684, 2, 0, 393220, 2, 0, 458755, 2, 0, 655362, 2, 0, 720897, 2, 0, 786433, 2, 0, 851968, 2, 0, 917504, 2, 0, 131078, 2, 0, 65542, 2, 0, 7, 2, 0, -65529, 2, 0, 65543, 2, 0, 131079, 2, 0, 196614, 2, 0, 262150, 2, 0, 327685, 2, 0, 393221, 2, 0, 458756, 2, 0, 524292, 2, 0, 589827, 2, 0, 655363, 2, 0, 720898, 2, 0, 786434, 2, 0, 851969, 2, 0, 917505, 2, 0, 327686, 2, 0, 393222, 2, 0, 458757, 2, 0, 524293, 2, 0, 589828, 2, 0, 655364, 2, 0, 720899, 2, 0, 786435, 2, 0, 851970, 2, 0, 917506, 2, 0, 983041, 2, 0, 1048577, 2, 0, 1114112, 2, 0, 1179648, 2, 0, 1310719, 2, 0, 1114113, 2, 0, 1048578, 2, 0, 983042, 2, 0, 917507, 2, 0, 851971, 2, 0, 786436, 2, 0, 720900, 2, 0, 655365, 2, 0, 589829, 2, 0, 524294, 2, 0, 458758, 2, 0, 393223, 2, 0, 458759, 2, 0, 524295, 2, 0, 589830, 2, 0, 655366, 2, 0, 720901, 2, 0, 786437, 2, 0, 851972, 2, 0, 917508, 2, 0, 983043, 2, 0, 1048579, 2, 0, 1114114, 2, 0, 1179650, 2, 0, 1179649, 2, 0, 1245184, 2, 0, 1310720, 2, 0, 393224, 2, 0, 327688, 2, 0, 196616, 2, 0, 1048580, 2, 0, 983044, 2, 0, 917509, 2, 0, 917510, 2, 0, 851974, 2, 0, 786439, 2, 0, 720903, 2, 0, 655368, 2, 0, 589832, 2, 0, 983045, 2, 0, 1048581, 2, 0, 1114116, 2, 0, 1114115, 2, 0, 1179651, 2, 0, 1245186, 2, 0, 1310722, 2, 0, 1376258, 2, 0, 1310723, 2, 0, 1245187, 2, 0, 1179652, 2, 0, 1179653, 2, 0, 1114117, 2, 0, 1048582, 2, 0, 983046, 2, 0, 917511, 2, 0, 851975, 2, 0, 851976, 2, 0, 917512, 2, 0, 983047, 2, 0, 1245188, 2, 0, 851973, 2, 0, 786438, 2, 0, 720902, 2, 0, 655367, 2, 0, 589831, 2, 0, 524296, 2, 0, 458760, 2, 0, 65544, 2, 0, 8, 2, 0, 196615, 2, 0, 262151, 2, 0, 327687, 2, 0, 262152, 2, 0, 131080, 2, 0, -65530, 2, 0, 6, 2, 0, 524287, 2, 0, 655359, 2, 0, 786431, 2, 0, 655360, 2, 0, 1048575, 2, 0, 1048576, 2, 0, 983040, 2, 0, 1179647, 2, 0, 1245185, 2, 0, 1310721, 2, 0, 1376256, 2, 0, 1245189, 2, 0, 1310725, 2, 0, 1376260, 2, 0, 1310726, 2, 0, 1245190, 2, 0, 1179655, 2, 0, 1179656, 2, 0, 1114120, 2, 0, 1114119, 2, 0, 1179654, 2, 0, 1114118, 2, 0, 1048583, 2, 0, 1048584, 2, 0, 983048, 2, 0, 786440, 2, 0, 720904, 2, 0, 393215, 2, 0, 1572869, 2, 0, 1507333, 2, 0, 1441797, 2, 0, 1376261, 2, 0, 1507332, 2, 0, 1376262, 2, 0, 1310727, 2, 0, 1245191, 2, 0, 1441798, 2, 0, 1638404, 2, 0, 1572868, 2, 0, 1507331, 2, 0, 1441796, 2, 0, 1376259, 2, 0, 1310724, 2, 0, 1441795, 2, 0, 1507330, 2, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(439, 311)
-texture = ExtResource("2_p1p7x")
+[node name="Objects" type="Node" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(439.25, 310.5)
-shape = SubResource("RectangleShape2D_0qkrd")
+[node name="StaticBody2D" parent="Objects" instance=ExtResource("3_d4bby")]
+position = Vector2(417, 189)
 
-[node name="Stella" parent="." instance=ExtResource("1_2e2qw")]
+[node name="StaticBody2D2" parent="Objects" instance=ExtResource("3_d4bby")]
+position = Vector2(837, 146)
+
+[node name="StaticBody2D3" parent="Objects" instance=ExtResource("3_d4bby")]
+position = Vector2(286, 343)
+
+[node name="StaticBody2D4" parent="Objects" instance=ExtResource("3_d4bby")]
+position = Vector2(792, 479)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 position = Vector2(440, 314)
-color = Color(0, 0, 0, 1)
+color = Color(0.00392157, 0.00392157, 0.00392157, 1)
+
+[node name="Stella" parent="." instance=ExtResource("1_2e2qw")]
+
+[node name="Camera2D" type="Camera2D" parent="Stella"]
+zoom = Vector2(1.5, 1.5)

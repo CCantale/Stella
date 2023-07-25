@@ -1,0 +1,7 @@
+PointLight2D
+TileMap
+Node
+Camera2D
+Sprite2D
+CollisionShape2D
+StaticBody2D
