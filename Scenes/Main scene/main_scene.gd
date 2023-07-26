@@ -12,10 +12,8 @@ const Z_KEYCODE = 90
 func _ready():
 	$"Stella's layer/Stella/Animations".play("Light match")
 
-
 func _process(_delta):
 	pass
-
 
 func is_letter(input):
 	return input >= A_KEYCODE and input <= Z_KEYCODE
@@ -30,13 +28,15 @@ func _input(event):
 			word_index += 1
 			$"Word's layer/Word/Time to type".start()
 			if word_index == len(word):
-				word_index = 0
-				tries_left = 3
-				$"Word's layer/Word".visible = false
-				$"Stella's layer/Stella/Animations".play("Light match")
+				success()
 		else:
 			fail()
-			
+
+func success():
+	word_index = 0
+	tries_left = 3
+	$"Word's layer/Word".visible = false
+	$"Stella's layer/Stella/Animations".play("Light match")
 
 func fail():
 	$"Word's layer/Word/AnimationPlayer".play("fail")
