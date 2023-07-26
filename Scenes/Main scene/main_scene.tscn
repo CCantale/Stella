@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://daclh3u50sqbf"]
+[gd_scene load_steps=12 format=3 uid="uid://daclh3u50sqbf"]
 
 [ext_resource type="Script" path="res://Scenes/Main scene/main_scene.gd" id="1_ypd52"]
 [ext_resource type="Texture2D" uid="uid://dqv0jj2j2ugyp" path="res://Assets/basic_ground_tiles.png" id="2_7sm72"]
 [ext_resource type="PackedScene" uid="uid://cemvkty2daxwl" path="res://Components/object.tscn" id="3_t8ago"]
 [ext_resource type="PackedScene" uid="uid://dpbq0mi7pwg0v" path="res://Components/Stella/Stella.tscn" id="4_6jc35"]
+[ext_resource type="AudioStream" uid="uid://d4f6wct0wie7s" path="res://Assets/Sounds/type fail.mp3" id="5_nguip"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nuw63"]
 texture = ExtResource("2_7sm72")
@@ -70,6 +71,94 @@ tile_shape = 1
 tile_size = Vector2i(128, 63)
 sources/2 = SubResource("TileSetAtlasSource_nuw63")
 
+[sub_resource type="LabelSettings" id="LabelSettings_de6e2"]
+font_size = 50
+
+[sub_resource type="Animation" id="Animation_r6sax"]
+resource_name = "fail"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(502, 214), Vector2(502, 204), Vector2(502, 220), Vector2(502, 214)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("fail:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_uvvfg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(502, 214)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("fail:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ouksl"]
+_data = {
+"RESET": SubResource("Animation_uvvfg"),
+"fail": SubResource("Animation_r6sax")
+}
+
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_ypd52")
 
@@ -114,3 +203,32 @@ follow_viewport_enabled = true
 [node name="Camera2D" type="Camera2D" parent="Stella\'s layer/Stella"]
 visible = false
 zoom = Vector2(1.5, 1.5)
+
+[node name="Word\'s layer" type="CanvasLayer" parent="."]
+
+[node name="Word" type="Label" parent="Word\'s layer"]
+visible = false
+offset_left = 502.0
+offset_top = 214.0
+offset_right = 653.0
+offset_bottom = 286.0
+text = "HOME"
+label_settings = SubResource("LabelSettings_de6e2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Word\'s layer/Word"]
+libraries = {
+"": SubResource("AnimationLibrary_ouksl")
+}
+
+[node name="fail" type="AudioStreamPlayer2D" parent="Word\'s layer/Word"]
+stream = ExtResource("5_nguip")
+
+[node name="Time to type" type="Timer" parent="Word\'s layer/Word"]
+wait_time = 0.2
+one_shot = true
+
+[connection signal="match_gone" from="Stella's layer/Stella" to="." method="_on_stella_match_gone"]
+[connection signal="animation_finished" from="Word's layer/Word/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="Word's layer/Word/Time to type" to="." method="_on_time_to_type_timeout"]

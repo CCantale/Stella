@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+signal match_gone
 
 const SPEED = 150.0
 var direction: Vector2
@@ -31,3 +32,8 @@ func _physics_process(_delta):
 		$AnimatedSprite2D.play("idle")
 		
 	move_and_slide()
+
+
+func _on_animations_animation_finished(anim_name):
+	if anim_name == "Light match":
+		match_gone.emit()
