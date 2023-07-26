@@ -1,3 +1,7 @@
-res://main_scene.tscn
-res://Components/object.tscn
 res://Components/Stella/Stella.tscn
+res://Scenes/Main menu/main_menu.tscn
+res://Scenes/Main scene/main_scene.tscn
+res://Scenes/Main scene/main_scene.gd
+res://Components/Stella/Stella.gd
+res://Scenes/Main menu/main_menu.gd
+res://Components/object.tscn

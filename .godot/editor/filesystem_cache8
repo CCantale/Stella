@@ -1,17 +1,23 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1690281488
+::res://::1690328473
 icon.svg::CompressedTexture2D::101998363629596349::1690281321::1690281430::1::::<><>::
-main_scene.tscn::PackedScene::7164072697012277575::1690281488::0::1::::<><>::uid://dpbq0mi7pwg0v::::res://Components/Stella/Stella.tscn<>uid://bpn5si07elgf::::res://icon.svg
-::res://Assets/::1690281605
+::res://Assets/::1690281624
 2d_lights_and_shadows_neutral_point_light.png::CompressedTexture2D::1836174326350418903::1690281321::1690281431::1::::<><>::
 basic_ground_tiles.png::CompressedTexture2D::8327169993953046535::1690281585::1690281613::1::::<><>::
-tileset.png::CompressedTexture2D::1664882696646083926::1690281321::1690281431::1::::<><>::
 ::res://Assets/Stella/::1690281430
 Attacks-static.png::CompressedTexture2D::4824060975587321214::1690281321::1690281430::1::::<><>::
 Idle.png::CompressedTexture2D::9174994263488630865::1690281321::1690281430::1::::<><>::
 Jump-static.png::CompressedTexture2D::4609306893033819264::1690281321::1690281430::1::::<><>::
 Walk.png::CompressedTexture2D::1879034965372395228::1690281321::1690281430::1::::<><>::
-::res://Components/::1690281321
-::res://Components/Stella/::1690281321
-Stella.gd::GDScript::-1::1690281321::0::1::::<>CharacterBody2D<>::
-Stella.tscn::PackedScene::8215175844249222687::1690281321::0::1::::<><>::res://Components/Stella/Stella.gd<>uid://d3yo2yggihniv
+::res://Components/::1690325428
+object.tscn::PackedScene::5079663226023945187::1690325428::0::1::::<><>::uid://bpn5si07elgf::::res://icon.svg
+::res://Components/Stella/::1690328458
+Stella.gd::GDScript::-1::1690325120::0::1::::<>CharacterBody2D<>::
+Stella.tscn::PackedScene::8215175844249222687::1690328458::0::1::::<><>::res://Components/Stella/Stella.gd<>uid://d3yo2yggihniv::::res://Assets/Stella/Idle.png<>uid://11howv0rtqxg::::res://Assets/Stella/Walk.png<>uid://1fpr1pse1t48::::res://Assets/2d_lights_and_shadows_neutral_point_light.png
+::res://Scenes/::1690325770
+::res://Scenes/Main menu/::1690328399
+main_menu.gd::GDScript::-1::1690328219::0::1::::<>Node<>::
+main_menu.tscn::PackedScene::2895241175172694834::1690328399::0::1::::<><>::res://Scenes/Main menu/main_menu.gd
+::res://Scenes/Main scene/::1690325763
+main_scene.gd::GDScript::-1::1690324714::0::1::::<>Node2D<>::
+main_scene.tscn::PackedScene::7164072697012277575::1690325428::0::1::::<><>::res://Scenes/Main scene/main_scene.gd<>uid://dqv0jj2j2ugyp::::res://Assets/basic_ground_tiles.png<>uid://cemvkty2daxwl::::res://Components/object.tscn<>uid://dpbq0mi7pwg0v::::res://Components/Stella/Stella.tscn

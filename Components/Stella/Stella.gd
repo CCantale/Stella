@@ -7,8 +7,9 @@ var direction: Vector2
 func _ready():
 	$AnimatedSprite2D.play("idle")
 	
-func _physics_process(delta):
-	
+func _physics_process(_delta):
+	if self.visible == false:
+		return
 	velocity = Vector2.ZERO
 	
 	direction.x = Input.get_axis("ui_left", "ui_right")
@@ -19,11 +20,11 @@ func _physics_process(delta):
 		$AnimatedSprite2D.play("walk")
 		if direction.x > 0:
 			if $AnimatedSprite2D.flip_h == false:
-				$PointLight2D.position.x += 100
+				$"Ground light".position.x += 100
 			$AnimatedSprite2D.flip_h = true
 		else:
 			if $AnimatedSprite2D.flip_h == true:
-				$PointLight2D.position.x -= 100
+				$"Ground light".position.x -= 100
 			$AnimatedSprite2D.flip_h = false
 			
 	else:

@@ -1,11 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://daclh3u50sqbf"]
+[gd_scene load_steps=7 format=3 uid="uid://daclh3u50sqbf"]
 
-[ext_resource type="PackedScene" uid="uid://dpbq0mi7pwg0v" path="res://Components/Stella/Stella.tscn" id="1_2e2qw"]
-[ext_resource type="PackedScene" uid="uid://cemvkty2daxwl" path="res://Components/object.tscn" id="3_d4bby"]
-[ext_resource type="Texture2D" uid="uid://dqv0jj2j2ugyp" path="res://Assets/basic_ground_tiles.png" id="3_uxyvd"]
+[ext_resource type="Script" path="res://Scenes/Main scene/main_scene.gd" id="1_ypd52"]
+[ext_resource type="Texture2D" uid="uid://dqv0jj2j2ugyp" path="res://Assets/basic_ground_tiles.png" id="2_7sm72"]
+[ext_resource type="PackedScene" uid="uid://cemvkty2daxwl" path="res://Components/object.tscn" id="3_t8ago"]
+[ext_resource type="PackedScene" uid="uid://dpbq0mi7pwg0v" path="res://Components/Stella/Stella.tscn" id="4_6jc35"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nuw63"]
-texture = ExtResource("3_uxyvd")
+texture = ExtResource("2_7sm72")
 texture_region_size = Vector2i(128, 128)
 2:0/0 = 0
 3:0/0 = 0
@@ -70,6 +71,10 @@ tile_size = Vector2i(128, 63)
 sources/2 = SubResource("TileSetAtlasSource_nuw63")
 
 [node name="MainScene" type="Node2D"]
+script = ExtResource("1_ypd52")
+
+[node name="Darkness" type="CanvasModulate" parent="."]
+color = Color(0, 0, 0, 1)
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
@@ -89,23 +94,23 @@ layer_1/tile_data = PackedInt32Array(1, 2, 0, 65536, 2, 0, 65537, 2, 0, 131073, 
 
 [node name="Objects" type="Node" parent="."]
 
-[node name="StaticBody2D" parent="Objects" instance=ExtResource("3_d4bby")]
+[node name="StaticBody2D" parent="Objects" instance=ExtResource("3_t8ago")]
 position = Vector2(417, 189)
 
-[node name="StaticBody2D2" parent="Objects" instance=ExtResource("3_d4bby")]
+[node name="StaticBody2D2" parent="Objects" instance=ExtResource("3_t8ago")]
 position = Vector2(837, 146)
 
-[node name="StaticBody2D3" parent="Objects" instance=ExtResource("3_d4bby")]
+[node name="StaticBody2D3" parent="Objects" instance=ExtResource("3_t8ago")]
 position = Vector2(286, 343)
 
-[node name="StaticBody2D4" parent="Objects" instance=ExtResource("3_d4bby")]
+[node name="StaticBody2D4" parent="Objects" instance=ExtResource("3_t8ago")]
 position = Vector2(792, 479)
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-position = Vector2(440, 314)
-color = Color(0.00392157, 0.00392157, 0.00392157, 1)
+[node name="Stella\'s layer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
 
-[node name="Stella" parent="." instance=ExtResource("1_2e2qw")]
+[node name="Stella" parent="Stella\'s layer" instance=ExtResource("4_6jc35")]
 
-[node name="Camera2D" type="Camera2D" parent="Stella"]
+[node name="Camera2D" type="Camera2D" parent="Stella\'s layer/Stella"]
+visible = false
 zoom = Vector2(1.5, 1.5)

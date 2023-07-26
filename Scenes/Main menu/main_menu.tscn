@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhiqg1huc2qq1"]
+
+[ext_resource type="Script" path="res://Scenes/Main menu/main_menu.gd" id="1_ltgus"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2p1dp"]
+font_size = 200
+
+[node name="Main menu" type="Node"]
+script = ExtResource("1_ltgus")
+
+[node name="Title" type="Label" parent="."]
+texture_filter = 1
+offset_left = 286.0
+offset_top = 46.0
+offset_right = 818.0
+offset_bottom = 322.0
+text = "Stella"
+label_settings = SubResource("LabelSettings_2p1dp")
+
+[node name="START" type="Button" parent="."]
+offset_left = 84.0
+offset_top = 479.0
+offset_right = 163.0
+offset_bottom = 510.0
+scale = Vector2(3, 3)
+text = "START"
+
+[node name="OPTIONS" type="Button" parent="."]
+offset_left = 468.0
+offset_top = 478.0
+offset_right = 547.0
+offset_bottom = 509.0
+scale = Vector2(3, 3)
+text = "OPTIONS"
+
+[node name="EXIT" type="Button" parent="."]
+offset_left = 839.0
+offset_top = 481.0
+offset_right = 918.0
+offset_bottom = 512.0
+scale = Vector2(3, 3)
+text = "EXIT"
+
+[connection signal="button_up" from="START" to="." method="_on_start_button_up"]
+[connection signal="pressed" from="START" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="EXIT" to="." method="_on_exit_pressed"]
